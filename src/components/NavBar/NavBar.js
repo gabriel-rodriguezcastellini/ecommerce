@@ -1,7 +1,9 @@
+const brandName = "ShopHub";
+
 const NavBar = () => {
   return (
     <nav>
-      <h3>Ecommerce</h3>
+      <h3>{brandName}</h3>
       <div>
         <button>Celulares</button>
         <button>Tablets</button>

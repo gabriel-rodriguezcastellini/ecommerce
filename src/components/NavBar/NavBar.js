@@ -1,4 +1,5 @@
 import React from "react";
+import CartWidget from "../CartWidget/CartWidget";
 
 const brandName = "ShopHub";
 
@@ -36,6 +37,9 @@ const NavBar = () => {
               <a className="nav-link" href="/">
                 Notebooks
               </a>
+            </li>
+            <li className="nav-item">
+              <CartWidget />
             </li>
           </ul>
         </div>

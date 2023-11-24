@@ -24,7 +24,7 @@ const NavBar = () => {
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
               <a className="nav-link" href="/">
-                Celulares
+                Cellulars
               </a>
             </li>
             <li className="nav-item">

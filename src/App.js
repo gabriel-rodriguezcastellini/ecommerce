@@ -1,6 +1,7 @@
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import "@fortawesome/fontawesome-free/css/all.css";
 
 function App() {
   return (

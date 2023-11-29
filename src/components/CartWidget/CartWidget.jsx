@@ -7,11 +7,11 @@ const CartWidget = () => {
   const itemsQty = cartList.reduce((total, item) => total + item.quantity, 0);
 
   return (
-    <div>
+    <div className="cart-widget">
       {itemsQty > 0 && (
         <div>
-          <p>{itemsQty} items in cart</p>
-          {/* Aquí colocarías tu icono o lo que quieras mostrar como widget */}
+          <span className="cart-icon">🛒</span>
+          <span className="items-quantity">{itemsQty}</span>
         </div>
       )}
     </div>

@@ -1,16 +1,25 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Item({ item, onAddToCart }) {
-  const { title, description, price, pictureUrl } = item;
+  const { id, title, description, price, pictureUrl, stock } = item;
   const [quantity, setQuantity] = useState(1);
 
   const handleAddToCart = () => {
-    onAddToCart({ ...item, quantity });
-    setQuantity(1);
+    if (quantity <= stock && quantity > 0) {
+      onAddToCart({ ...item, quantity });
+      setQuantity(1);
+    } else if (quantity <= 0) {
+      alert("Please select a valid quantity");
+    } else {
+      alert(`Only ${stock} items available`);
+    }
   };
 
   const incrementQuantity = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+    if (quantity < stock) {
+      setQuantity((prevQuantity) => prevQuantity + 1);
+    }
   };
 
   const decrementQuantity = () => {
@@ -20,30 +29,40 @@ function Item({ item, onAddToCart }) {
   };
 
   return (
-    <div className="card" style={{ width: "18rem" }}>
-      <img src={pictureUrl} className="card-img-top" alt={title} />
+    <div className="card mb-3">
+      <Link to={`/item/${id}`}>
+        <img src={pictureUrl} className="card-img-top" alt={title} />
+      </Link>
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>
-        <p className="card-text">${price}</p>
-        <div className="d-flex justify-content-center align-items-center">
+        <p className="card-text">Price: ${price}</p>
+        <p className="card-text">Stock: {stock}</p>
+        <div className="d-flex justify-content-between align-items-center">
+          <div>
+            <button
+              className="btn btn-outline-secondary"
+              onClick={decrementQuantity}
+            >
+              -
+            </button>
+            <span className="btn btn-light">{quantity}</span>
+            <button
+              className="btn btn-outline-secondary"
+              onClick={incrementQuantity}
+              disabled={quantity >= stock}
+            >
+              +
+            </button>
+          </div>
           <button
-            className="btn btn-sm btn-secondary me-2"
-            onClick={decrementQuantity}
+            className="btn btn-primary"
+            onClick={handleAddToCart}
+            disabled={stock <= 0}
           >
-            -
-          </button>
-          <span>{quantity}</span>
-          <button
-            className="btn btn-sm btn-secondary ms-2"
-            onClick={incrementQuantity}
-          >
-            +
+            {stock <= 0 ? "Out of Stock" : "Add to Cart"}
           </button>
         </div>
-        <button className="btn btn-primary mt-3" onClick={handleAddToCart}>
-          Add to Cart
-        </button>
       </div>
     </div>
   );

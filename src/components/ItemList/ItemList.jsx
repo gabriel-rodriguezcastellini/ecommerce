@@ -19,6 +19,7 @@ function ItemList() {
             price: 19.99,
             pictureUrl:
               "https://www.trustedreviews.com/wp-content/uploads/sites/54/2023/07/Amazon-Fire-Max-11-review-7-scaled.jpeg",
+            stock: 10,
           },
           {
             id: 2,
@@ -27,6 +28,7 @@ function ItemList() {
             price: 29.99,
             pictureUrl:
               "https://www.trustedreviews.com/wp-content/uploads/sites/54/2021/11/IMG_4286-scaled.jpeg",
+            stock: 5,
           },
         ];
         resolve(mockItems);

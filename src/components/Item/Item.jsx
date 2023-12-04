@@ -19,7 +19,7 @@ const Item = ({ id, name, img, price, stock, description }) => {
           src={img}
           position="top"
           alt={name}
-          className="w-25 mx-auto h-100"
+          className="w-50 mx-auto h-100"
         />
         <MDBCardBody className="bg-white">
           <MDBCardTitle>{name}</MDBCardTitle>

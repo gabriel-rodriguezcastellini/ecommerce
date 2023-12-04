@@ -27,6 +27,36 @@ const products = [
     description:
       "Its soft, all-metal cover and ultra-thin edges for a better visual experience on the screen will result in a tablet that everyone will want to use.",
   },
+  {
+    id: "4",
+    name: 'Laptop Legion 5i Pro 7ma Gen (16", Intel)',
+    price: 3247999,
+    category: "notebook",
+    img: "https://www.lenovo.com/medias/LEN101G0015-hero.png?context=bWFzdGVyfHJvb3R8MjEwNjk5fGltYWdlL3BuZ3xoN2UvaDlkLzE0MjIyMjE2ODg4MzUwLnBuZ3w4YjkzZTI4Yzg2NDQ4ZjIyNDM5OGJhNDAwMDJmNmJkNDI2Nzk3Zjg4NmM2MjIwOWQyOTUwNGQxMDU3NjdlM2Fj",
+    stock: 25,
+    description:
+      "With cores that are truly revolutionary in performance and efficiency, 12th Gen Intel® Core™ processors are ideal for streaming, editing, gaming, and recording. A maximum level of power when you need it most.",
+  },
+  {
+    id: "5",
+    name: 'Laptop gamer Legion 5 Gen 6 (15.6", AMD)',
+    price: 1469999,
+    category: "notebook",
+    img: "https://www.lenovo.com/medias/lenovo-laptop-legion-5-15-amd-subseries-hero.png?context=bWFzdGVyfHJvb3R8MTYyNjIwfGltYWdlL3BuZ3xoNTIvaDU1LzE0MTkwNDY2NjI5NjYyLnBuZ3wwNTQ1YjQxMzI0ZGJiODc2YmIwNWE3YzRiMzNlZWEzNjg1ODJkZjljNDRhOGVhYTY2YzE1N2Q5OGVhNTlhYWUw",
+    stock: 25,
+    description:
+      "They say we spend our lives making compromises. They say you can't have great performance and long battery life on the same computer. They say that a gaming laptop focused on great performance has to be big and heavy. They are wrong. Now you can enjoy elite gaming performance in a thin and light laptop with incredible battery life thanks to new mobile processors up to AMD Ryzen™ 7. Never compromise on your gaming laptop again.",
+  },
+  {
+    id: "6",
+    name: 'Laptop ThinkBook 15 3era Gen (15.6", AMD)',
+    price: 1339999,
+    category: "notebook",
+    img: "https://www.lenovo.com/medias/lenovo-laptops-thinkbook-series-c-thinkbook-15-gen-2-amd-hero.png?context=bWFzdGVyfHJvb3R8MjYxNjIyfGltYWdlL3BuZ3xoYTMvaDlmLzE0MTkwNDgzMjc1ODA2LnBuZ3w0NGFkZDc1MjJhMzQyNzYyZmNiMzJhMWI5Y2U5MzcxYmM5NGZiMDEyZjhmZjg3MTY1NzBkMzdiYmNhNDBmOWQx",
+    stock: 25,
+    description:
+      "With AMD Ryzen™ 5000 Series Mobile processors and Radeon™ graphics, the ThinkBook 15 3rd Generation work laptop lets you work on demanding applications with ease. Up to eight mobile cores deliver unparalleled responsiveness and multitasking experience. And with up to 50% larger fans than the previous generation, dual heat pipes, and improved thermal capacity, you'll be able to push your processor to its maximum power. Combine this with AI-enabled intelligent cooling and don't worry about overheating.",
+  },
 ];
 
 export const getProducts = () => {

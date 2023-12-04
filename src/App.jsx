@@ -1,14 +1,16 @@
-import React from "react";
-import MainTitle from "./components/MainTitle/MainTitle";
-import NavBar from "./components/NavBar/NavBar";
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import React from "react";
+import NavBar from "./components/NavBar/NavBar";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemCount from "./components/ItemCount/ItemCount";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 const App = () => {
   return (
     <div>
       <NavBar />
-      <MainTitle />
+      <ItemListContainer greeting={"Welcome"} />
+      {/* <ItemDetailContainer /> */}
     </div>
   );
 };

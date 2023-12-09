@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getProducts } from "../../asyncMock";
+import { getProducts, getProductsByCategoryId } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
 import {
   MDBContainer,
@@ -8,31 +8,38 @@ import {
   MDBSpinner,
 } from "mdb-react-ui-kit";
 import CarouselItem from "../CarouselItem/CarouselItem";
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
+  const { categoryId } = useParams();
 
   useEffect(() => {
-    getProducts()
+    const asyncFunc = categoryId ? getProductsByCategoryId : getProducts;
+
+    asyncFunc(categoryId)
       .then((response) => {
         setProducts(response);
       })
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [categoryId]);
 
   return (
-    <MDBContainer>
-      <MDBRow>
+    <MDBContainer className="mb-5">
+      <MDBRow className="mb-5">
         <h1 className="display-5 fw-bold text-center my-3">{greeting}</h1>
-        {/* TODO: change the == 6 to get the real quantity (not fixed) */}
-        {products.length == 6 ? (
-          <MDBCarousel fade>
-            {products.slice(-3).map((prod, index) => (
-              <CarouselItem key={prod.id} item={prod} index={index} />
-            ))}
-          </MDBCarousel>
+        {products.length > 0 ? (
+          !categoryId ? (
+            <MDBCarousel fade interval={3000}>
+              {products.slice(-3).map((prod, index) => (
+                <CarouselItem key={prod.id} item={prod} index={index} />
+              ))}
+            </MDBCarousel>
+          ) : (
+            ""
+          )
         ) : (
           <MDBSpinner role="status" className="mx-auto">
             <span className="visually-hidden">Loading...</span>

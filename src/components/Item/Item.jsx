@@ -10,6 +10,7 @@ import {
   MDBCardFooter,
   MDBCol,
 } from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
 
 const Item = ({ id, name, img, price, stock, description }) => {
   return (
@@ -32,7 +33,11 @@ const Item = ({ id, name, img, price, stock, description }) => {
           <MDBCardText>{description}</MDBCardText>
         </MDBCardBody>
         <MDBCardFooter>
-          <MDBBtn href="#">View detail</MDBBtn>
+          <div className="text-center">
+            <Link to={`/ecommerce/item/${id}`} className="nav-link-style fs-ms">
+              <i className="ci-eye align-middle me-1"></i>View details
+            </Link>
+          </div>
         </MDBCardFooter>
       </MDBCard>
     </MDBCol>

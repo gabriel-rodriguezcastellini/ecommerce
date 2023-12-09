@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { MDBBtn, MDBBtnGroup } from "mdb-react-ui-kit";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [quantity, setQuantity] = useState(initial);
@@ -18,20 +17,45 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <>
-      <MDBBtnGroup>
-        <MDBBtn size="sm" onClick={decrement}>
-          -
-        </MDBBtn>
-        <h4 className="mx-3 my-auto">{quantity}</h4>
-        <MDBBtn size="sm" onClick={increment}>
-          +
-        </MDBBtn>
-      </MDBBtnGroup>
-      <div className="mt-3">
-        <MDBBtn onClick={() => onAdd(quantity)} disabled={!stock}>
-          Add to cart
-        </MDBBtn>
+      <div className="row">
+        <div className="col-md-4 col-6">
+          <label className="mb-2 d-block">Quantity</label>
+          <div className="input-group mb-3" style={{ width: "170px" }}>
+            <button
+              className="btn btn-white border border-secondary px-3"
+              type="button"
+              id="button-addon1"
+              data-mdb-ripple-color="dark"
+              onClick={decrement}
+            >
+              <i className="fas fa-minus"></i>
+            </button>
+            <input
+              type="text"
+              className="form-control text-center border border-secondary"
+              placeholder={quantity}
+              aria-label="Example text with button addon"
+              aria-describedby="button-addon1"
+            />
+            <button
+              className="btn btn-white border border-secondary px-3"
+              type="button"
+              id="button-addon2"
+              data-mdb-ripple-color="dark"
+              onClick={increment}
+            >
+              <i className="fas fa-plus"></i>
+            </button>
+          </div>
+        </div>
       </div>
+      <a
+        className="btn btn-primary shadow-0"
+        onClick={() => onAdd(quantity)}
+        disabled={!stock}
+      >
+        <i className="me-1 fa fa-shopping-basket"></i> Add to cart
+      </a>
     </>
   );
 };

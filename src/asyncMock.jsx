@@ -7,6 +7,7 @@ const products = [
     img: "https://http2.mlstatic.com/D_NQ_NP_732057-MLA70868353813_082023-O.webp",
     stock: 25,
     description: "Professional photography in your pocket.",
+    featured: true,
   },
   {
     id: "2",
@@ -16,6 +17,7 @@ const products = [
     img: "https://http2.mlstatic.com/D_NQ_NP_984857-MLA69514172539_052023-O.webp",
     stock: 25,
     description: "Make nights more epic with the night camera.",
+    featured: false,
   },
   {
     id: "3",
@@ -26,6 +28,7 @@ const products = [
     stock: 25,
     description:
       "Its soft, all-metal cover and ultra-thin edges for a better visual experience on the screen will result in a tablet that everyone will want to use.",
+    featured: true,
   },
   {
     id: "4",
@@ -36,6 +39,7 @@ const products = [
     stock: 25,
     description:
       "With cores that are truly revolutionary in performance and efficiency, 12th Gen Intel® Core™ processors are ideal for streaming, editing, gaming, and recording. A maximum level of power when you need it most.",
+    featured: true,
   },
   {
     id: "5",
@@ -46,6 +50,7 @@ const products = [
     stock: 25,
     description:
       "They say we spend our lives making compromises. They say you can't have great performance and long battery life on the same computer. They say that a gaming laptop focused on great performance has to be big and heavy. They are wrong. Now you can enjoy elite gaming performance in a thin and light laptop with incredible battery life thanks to new mobile processors up to AMD Ryzen™ 7. Never compromise on your gaming laptop again.",
+    featured: false,
   },
   {
     id: "6",
@@ -56,6 +61,7 @@ const products = [
     stock: 25,
     description:
       "With AMD Ryzen™ 5000 Series Mobile processors and Radeon™ graphics, the ThinkBook 15 3rd Generation work laptop lets you work on demanding applications with ease. Up to eight mobile cores deliver unparalleled responsiveness and multitasking experience. And with up to 50% larger fans than the previous generation, dual heat pipes, and improved thermal capacity, you'll be able to push your processor to its maximum power. Combine this with AI-enabled intelligent cooling and don't worry about overheating.",
+    featured: false,
   },
 ];
 

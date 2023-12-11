@@ -33,9 +33,11 @@ const ItemListContainer = ({ greeting }) => {
         {products.length > 0 ? (
           !categoryId ? (
             <MDBCarousel fade interval={3000}>
-              {products.slice(-3).map((prod, index) => (
-                <CarouselItem key={prod.id} item={prod} index={index} />
-              ))}
+              {products
+                .filter((product) => product.featured)
+                .map((prod, index) => (
+                  <CarouselItem key={prod.id} item={prod} index={index} />
+                ))}
             </MDBCarousel>
           ) : (
             ""

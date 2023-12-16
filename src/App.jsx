@@ -4,7 +4,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Footer from "./components/Footer/Footer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound/NotFound";
 import { CartProvider } from "./context/CartContext";
 
@@ -15,6 +15,7 @@ const App = () => {
         <CartProvider>
           <NavBar />
           <Routes>
+            <Route path="/" element={<Navigate to="/ecommerce/" />} />
             <Route path="/ecommerce/" element={<ItemListContainer />} />
             <Route
               path="/ecommerce/category/:categoryId"

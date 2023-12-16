@@ -32,7 +32,7 @@ const ItemListContainer = ({ greeting }) => {
         <h1 className="display-5 fw-bold text-center my-3">{greeting}</h1>
         {products.length > 0 ? (
           !categoryId ? (
-            <MDBCarousel fade interval={3000}>
+            <MDBCarousel showControls showIndicators dark fade interval={3000}>
               {products
                 .filter((product) => product.featured)
                 .map((prod, index) => (

@@ -6,19 +6,24 @@ import {
   MDBBadge,
 } from "mdb-react-ui-kit";
 import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
 const CartWidget = () => {
-  const context = useContext(CartContext);
+  const { totalQuantity } = useContext(CartContext);
   return (
     <MDBNavbarItem>
-      <MDBNavbarLink href="#cart">
+      <Link
+        to="/ecommerce/cart"
+        className="nav-link"
+        style={{ display: totalQuantity > 0 ? "block" : "none" }}
+      >
         <MDBBadge pill color="danger">
-          {context.cart.reduce((n, { quantity }) => n + quantity, 0)}
+          {totalQuantity}
         </MDBBadge>
         <span>
           <MDBIcon fas icon="shopping-cart"></MDBIcon>
         </span>
-      </MDBNavbarLink>
+      </Link>
     </MDBNavbarItem>
   );
 };

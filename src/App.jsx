@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound/NotFound";
 import { CartProvider } from "./context/CartContext";
+import Cart from "./components/Cart/Cart";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
               path="/ecommerce/item/:itemId"
               element={<ItemDetailContainer />}
             />
+            <Route path="/ecommerce/cart" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

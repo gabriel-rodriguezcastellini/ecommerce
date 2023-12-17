@@ -10,7 +10,7 @@ import {
 import CarouselItem from "../CarouselItem/CarouselItem";
 import { useParams } from "react-router-dom";
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
   const { categoryId } = useParams();
 
@@ -27,9 +27,8 @@ const ItemListContainer = ({ greeting }) => {
   }, [categoryId]);
 
   return (
-    <MDBContainer className="mb-5">
+    <MDBContainer className="my-5">
       <MDBRow className="mb-5">
-        <h1 className="display-5 fw-bold text-center my-3">{greeting}</h1>
         {products.length > 0 ? (
           !categoryId ? (
             <MDBCarousel showControls showIndicators dark fade interval={3000}>

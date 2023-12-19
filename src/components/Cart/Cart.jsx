@@ -84,12 +84,12 @@ const Cart = () => {
                 <span>${total.toFixed(2)}</span>
               </div>
 
-              <button
-                type="button"
+              <Link
+                to="/ecommerce/checkout"
                 className="btn btn-primary btn-rounded w-100"
               >
                 Go to checkout
-              </button>
+              </Link>
               <button
                 type="button"
                 className="btn btn-danger btn-rounded w-100 mt-3"

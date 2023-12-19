@@ -12,6 +12,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../../services/firebase/firebaseConfig";
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
+import { MDBIcon, MDBSpinner } from "mdb-react-ui-kit";
 
 const Checkout = () => {
   const [loading, setLoading] = useState(false);
@@ -66,19 +67,29 @@ const Checkout = () => {
   };
 
   if (loading) {
-    return <h1>Your order is being generated...</h1>;
+    return (
+      <>
+        <h1 className="text-center mt-3">Your order is being generated...</h1>
+        <MDBSpinner role="status" className="mx-auto">
+          <span className="visually-hidden">Loading...</span>
+        </MDBSpinner>
+      </>
+    );
   }
 
   if (orderId) {
-    return <h1>Your order ID is: {orderId}</h1>;
+    return (
+      <div className="hero-content mt-3 w-75 mx-auto">
+        <h1 className="hero-heading text-center">Order confirmed</h1>
+        <div role="alert" className="alert alert-success">
+          <MDBIcon fas icon="check-circle" className="me-1" />
+          Your order is confirmed, ID: {orderId}
+        </div>
+      </div>
+    );
   }
 
-  return (
-    <div>
-      <h1>Checkout</h1>
-      <CheckoutForm onConfirm={createOrder} />
-    </div>
-  );
+  return <CheckoutForm onConfirm={createOrder} />;
 };
 
 export default Checkout;

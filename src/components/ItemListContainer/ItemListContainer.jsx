@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { getProducts, getProductsByCategoryId } from "../../asyncMock";
 import ItemList from "../ItemList/ItemList";
 import {
   MDBContainer,
@@ -9,27 +8,39 @@ import {
 } from "mdb-react-ui-kit";
 import CarouselItem from "../CarouselItem/CarouselItem";
 import { useParams } from "react-router-dom";
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../services/firebase/firebaseConfig";
 
 const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const { categoryId } = useParams();
 
   useEffect(() => {
-    const asyncFunc = categoryId ? getProductsByCategoryId : getProducts;
-
-    asyncFunc(categoryId)
+    const collectionRef = categoryId
+      ? query(collection(db, "products"), where("category", "==", categoryId))
+      : collection(db, "products");
+    getDocs(collectionRef)
       .then((response) => {
-        setProducts(response);
+        const productsAdapted = response.docs.map((doc) => {
+          const data = doc.data();
+          return { id: doc.id, ...data };
+        });
+        setProducts(productsAdapted);
       })
       .catch((error) => {
         console.log(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, [categoryId]);
 
   return (
     <MDBContainer className="my-5">
       <MDBRow className="mb-5">
-        {products.length > 0 ? (
+        {products.length > 0 && !loading ? (
           !categoryId ? (
             <MDBCarousel showControls showIndicators dark fade interval={3000}>
               {products

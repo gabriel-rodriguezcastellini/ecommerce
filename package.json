@@ -5,8 +5,6 @@
   "type": "module",
   "homepage": "https://gabriel-rodriguezcastellini.github.io/ecommerce/",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "test": "react-scripts test --passWithNoTests",
@@ -34,7 +32,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.4",
-    "gh-pages": "^6.1.0",
     "vite": "^5.0.5"
   }
 }

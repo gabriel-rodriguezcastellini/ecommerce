@@ -57,7 +57,7 @@ const Checkout = () => {
         setOrderId(orderAdded.id);
         clearCart();
       } else {
-        console.log("There are some products out of stock.");
+        console.log("There are some products out of stock");
       }
     } catch (error) {
       console.log(error);

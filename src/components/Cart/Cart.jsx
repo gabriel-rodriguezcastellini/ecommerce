@@ -85,7 +85,7 @@ const Cart = () => {
               </div>
 
               <Link
-                to="/ecommerce/checkout"
+                to="/checkout"
                 className="btn btn-primary btn-rounded w-100"
               >
                 Go to checkout

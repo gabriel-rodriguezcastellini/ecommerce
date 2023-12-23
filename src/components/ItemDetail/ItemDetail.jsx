@@ -53,7 +53,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
 
               <hr />
               {isInCart(id) > 0 ? (
-                <Link to="/ecommerce/cart" className="btn btn-warning shadow-0">
+                <Link to="/cart" className="btn btn-warning shadow-0">
                   Buy now
                 </Link>
               ) : (

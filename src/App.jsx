@@ -17,18 +17,14 @@ const App = () => {
         <CartProvider>
           <NavBar />
           <Routes>
-            <Route path="/" element={<Navigate to="/ecommerce/" />} />
-            <Route path="/ecommerce/" element={<ItemListContainer />} />
+            <Route path="/" element={<ItemListContainer />} />
             <Route
-              path="/ecommerce/category/:categoryId"
+              path="/category/:categoryId"
               element={<ItemListContainer />}
             />
-            <Route
-              path="/ecommerce/item/:itemId"
-              element={<ItemDetailContainer />}
-            />
-            <Route path="/ecommerce/cart" element={<Cart />} />
-            <Route path="/ecommerce/checkout" element={<Checkout />} />
+            <Route path="/item/:itemId" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
           <Footer />

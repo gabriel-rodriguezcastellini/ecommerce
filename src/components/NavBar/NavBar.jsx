@@ -17,7 +17,7 @@ const NavBar = () => {
   return (
     <MDBNavbar expand="lg" light bgColor="light">
       <MDBContainer fluid>
-        <Link to={"/ecommerce/"} className="navbar-brand">
+        <Link to={"/"} className="navbar-brand">
           ShopHub
         </Link>
         <MDBNavbarToggler
@@ -33,7 +33,7 @@ const NavBar = () => {
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
             <MDBNavbarItem>
               <NavLink
-                to={`/ecommerce/category/cellular`}
+                to={`/category/cellular`}
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}`
                 }
@@ -43,7 +43,7 @@ const NavBar = () => {
             </MDBNavbarItem>
             <MDBNavbarItem>
               <NavLink
-                to={`/ecommerce/category/tablet`}
+                to={`/category/tablet`}
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}`
                 }
@@ -53,7 +53,7 @@ const NavBar = () => {
             </MDBNavbarItem>
             <MDBNavbarItem>
               <NavLink
-                to={`/ecommerce/category/notebook`}
+                to={`/category/notebook`}
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}`
                 }

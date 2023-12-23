@@ -34,7 +34,7 @@ const Item = ({ id, name, img, price, stock, description }) => {
         </MDBCardBody>
         <MDBCardFooter>
           <div className="text-center">
-            <Link to={`/ecommerce/item/${id}`} className="nav-link-style fs-ms">
+            <Link to={`/item/${id}`} className="nav-link-style fs-ms">
               <i className="ci-eye align-middle me-1"></i>View details
             </Link>
           </div>

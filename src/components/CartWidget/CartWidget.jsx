@@ -13,7 +13,7 @@ const CartWidget = () => {
   return (
     <MDBNavbarItem>
       <Link
-        to="/ecommerce/cart"
+        to="/cart"
         className="nav-link"
         style={{ display: totalQuantity > 0 ? "block" : "none" }}
       >

@@ -14,7 +14,7 @@ const NotFound = () => {
             <p className="mb-4">
               Either something went wrong or this page doesn't exist anymore.
             </p>
-            <Link to="/ecommerce/" className="btn btn-light mb-0">
+            <Link to="/" className="btn btn-light mb-0">
               Take me to Homepage
             </Link>
           </div>

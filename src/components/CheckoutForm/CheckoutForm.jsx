@@ -1,17 +1,17 @@
 import { MDBInput } from "mdb-react-ui-kit";
 import React, { useState } from "react";
+import { UserAuth } from "../../context/AuthContext";
 
 const CheckoutForm = ({ onConfirm }) => {
-  const [name, setName] = useState("");
+  const { user } = UserAuth();
   const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
 
   const handleConfirm = (event) => {
     event.preventDefault();
     const userData = {
-      name,
+      name: user.displayName,
       phone,
-      email,
+      email: user.email,
     };
     onConfirm(userData);
   };
@@ -29,15 +29,15 @@ const CheckoutForm = ({ onConfirm }) => {
                   <form onSubmit={handleConfirm}>
                     <div className="row">
                       <div className="col-12 col-md-6 mb-4">
-                        <div className="form-outline">
+                        <div>
                           <MDBInput
                             type="text"
                             id="form6Example1"
-                            className="form-control"
-                            value={name}
-                            onChange={({ target }) => setName(target.value)}
+                            className="form-control bg-white"
+                            value={user.displayName}
                             label="Name"
                             required
+                            disabled
                           />
                         </div>
                       </div>
@@ -47,11 +47,11 @@ const CheckoutForm = ({ onConfirm }) => {
                       <MDBInput
                         type="email"
                         id="form6Example5"
-                        className="form-control"
-                        value={email}
-                        onChange={({ target }) => setEmail(target.value)}
+                        className="form-control bg-white"
+                        value={user.email}
                         label="Email"
                         required
+                        disabled
                       />
                     </div>
 

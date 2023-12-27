@@ -25,15 +25,6 @@ This repository contains a set of React components developed for ShopHub, an e-c
 - Firebase Firestore for database management
 - MDB React UI Kit for UI components
 
-## Setup
-
-To use these components:
-
-1. Clone the repository.
-2. Ensure you have Node.js and npm installed.
-3. Install dependencies using `npm install`.
-4. Integrate these components into your React application as needed.
-
 ## Usage
 
 Each component serves a specific purpose within an e-commerce application:

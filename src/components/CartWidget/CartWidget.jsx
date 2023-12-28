@@ -1,10 +1,5 @@
 import React, { useContext } from "react";
-import {
-  MDBIcon,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBBadge,
-} from "mdb-react-ui-kit";
+import { MDBIcon, MDBNavbarItem, MDBBadge } from "mdb-react-ui-kit";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 

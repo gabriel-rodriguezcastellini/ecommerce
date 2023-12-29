@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   MDBContainer,
   MDBNavbar,
@@ -15,10 +15,28 @@ import {
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
 import { UserAuth } from "../../context/AuthContext";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../../services/firebase/firebaseConfig";
 
 const NavBar = () => {
   const [openBasic, setOpenBasic] = useState(false);
   const { user, logOut } = UserAuth();
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const collectionRef = collection(db, "categories");
+    getDocs(collectionRef)
+      .then((response) => {
+        const categories = response.docs.map((doc) => {
+          const data = doc.data();
+          return { id: doc.id, ...data };
+        });
+        setCategories(categories);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  });
 
   const signOff = async () => {
     try {
@@ -42,39 +60,20 @@ const NavBar = () => {
         >
           <MDBIcon icon="bars" fas />
         </MDBNavbarToggler>
-
         <MDBCollapse navbar open={openBasic}>
           <MDBNavbarNav className="mr-auto mb-2 mb-lg-0">
-            <MDBNavbarItem>
-              <NavLink
-                to={`/category/cellular`}
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? "active" : ""}`
-                }
-              >
-                Cellulars
-              </NavLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <NavLink
-                to={`/category/tablet`}
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? "active" : ""}`
-                }
-              >
-                Tablets
-              </NavLink>
-            </MDBNavbarItem>
-            <MDBNavbarItem>
-              <NavLink
-                to={`/category/notebook`}
-                className={({ isActive }) =>
-                  `nav-link ${isActive ? "active" : ""}`
-                }
-              >
-                Notebooks
-              </NavLink>
-            </MDBNavbarItem>
+            {categories.map((category, index) => (
+              <MDBNavbarItem key={category.id}>
+                <NavLink
+                  to={`/category/${category.name}}`}
+                  className={({ isActive }) =>
+                    `nav-link ${isActive ? "active" : ""}`
+                  }
+                >
+                  {category.description}
+                </NavLink>
+              </MDBNavbarItem>
+            ))}
             {user == null ? (
               <MDBNavbarItem>
                 <NavLink

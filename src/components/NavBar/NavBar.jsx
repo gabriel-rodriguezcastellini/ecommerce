@@ -10,7 +10,6 @@ import {
   MDBDropdown,
   MDBDropdownToggle,
   MDBDropdownMenu,
-  MDBDropdownItem,
 } from "mdb-react-ui-kit";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
@@ -36,10 +35,13 @@ const NavBar = () => {
       .catch((error) => {
         console.log(error);
       });
-  });
+  }, []);
 
-  const signOff = async () => {
+  const signOff = async (e) => {
     try {
+      e.preventDefault();
+      e.stopPropagation();
+
       await logOut();
     } catch (error) {
       console.log(error);
@@ -65,7 +67,7 @@ const NavBar = () => {
             {categories.map((category, index) => (
               <MDBNavbarItem key={category.id}>
                 <NavLink
-                  to={`/category/${category.name}}`}
+                  to={`/category/${category.name}`}
                   className={({ isActive }) =>
                     `nav-link ${isActive ? "active" : ""}`
                   }
@@ -92,11 +94,19 @@ const NavBar = () => {
                     {user.displayName}
                   </MDBDropdownToggle>
                   <MDBDropdownMenu>
-                    <MDBDropdownItem link onClick={signOff}>
+                    <Link
+                      className="dropdown-item"
+                      to={"/sign-out"}
+                      onClick={signOff}
+                    >
                       Sign out
-                    </MDBDropdownItem>
-                    <Link className="dropdown-item" to={"/profile"}>
-                      Profile
+                    </Link>
+                    <Link
+                      className="dropdown-item"
+                      to={"/account-orders"}
+                      onClick={"dropdown.hide()"}
+                    >
+                      My orders
                     </Link>
                   </MDBDropdownMenu>
                 </MDBDropdown>

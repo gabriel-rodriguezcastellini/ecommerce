@@ -12,7 +12,7 @@ import Checkout from "./components/Checkout/Checkout";
 import { AuthContextProvider } from "./context/AuthContext";
 import Login from "./components/Login/Login";
 import { RouteProtector } from "./components/RouteProtector/RouteProtector";
-import OrderListContainer from "./components/OrderListContainer/OrderListContainer";
+import OrderList from "./components/OrderList/OrderList";
 
 const App = () => {
   return (
@@ -41,7 +41,7 @@ const App = () => {
                 path="/account-orders"
                 element={
                   <RouteProtector>
-                    <OrderListContainer />
+                    <OrderList />
                   </RouteProtector>
                 }
               />

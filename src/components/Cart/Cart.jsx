@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import CartItem from "../CartItem/CartItem";
-import { MDBBtn } from "mdb-react-ui-kit";
 import { format, addWeeks } from "date-fns";
 
 const Cart = () => {

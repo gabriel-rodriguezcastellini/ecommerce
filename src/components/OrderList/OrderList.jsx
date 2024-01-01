@@ -111,26 +111,43 @@ const OrderList = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {orders.map((order, index) => (
-                      <tr key={order.id}>
-                        <td className="py-3">
-                          <a
-                            className="nav-link-style fw-medium fs-sm"
-                            href="#order-details"
-                            data-bs-toggle="modal"
-                          >
-                            {order.id}
-                          </a>
-                        </td>
-                        <td className="py-3">
-                          {format(order.date.toDate(), "MMMM d, yyyy")}
-                        </td>
-                        <td className="py-3">
-                          <span className="badge bg-info m-0">In Progress</span>
-                        </td>
-                        <td className="py-3">${order.total}</td>
-                      </tr>
-                    ))}
+                    {orders.map((order, index) => {
+                      const orderDate = order.date.toDate();
+                      const today = new Date();
+                      const twoWeeksAgo = new Date(
+                        today.getTime() - 14 * 24 * 60 * 60 * 1000
+                      );
+                      const status =
+                        orderDate < twoWeeksAgo ? "Delayed" : order.status;
+                      const badgeClass =
+                        status === "Delivered"
+                          ? "bg-success"
+                          : status === "Delayed"
+                          ? "bg-warning"
+                          : "bg-info";
+                      return (
+                        <tr key={order.id}>
+                          <td className="py-3">
+                            <a
+                              className="nav-link-style fw-medium fs-sm"
+                              href="#order-details"
+                              data-bs-toggle="modal"
+                            >
+                              {order.id}
+                            </a>
+                          </td>
+                          <td className="py-3">
+                            {format(order.date.toDate(), "MMMM d, yyyy")}
+                          </td>
+                          <td className="py-3">
+                            <span className={`badge ${badgeClass} m-0`}>
+                              {status}
+                            </span>
+                          </td>
+                          <td className="py-3">${order.total}</td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               ) : (

@@ -30,6 +30,7 @@ const Checkout = () => {
         items: cart,
         total: total,
         date: Timestamp.fromDate(new Date()),
+        status: "In Progress",
       };
       const batch = writeBatch(db);
       const outOfStock = [];

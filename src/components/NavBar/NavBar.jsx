@@ -96,17 +96,17 @@ const NavBar = () => {
                   <MDBDropdownMenu>
                     <Link
                       className="dropdown-item"
-                      to={"/sign-out"}
-                      onClick={signOff}
-                    >
-                      Sign out
-                    </Link>
-                    <Link
-                      className="dropdown-item"
                       to={"/account-orders"}
                       onClick={"dropdown.hide()"}
                     >
                       My orders
+                    </Link>
+                    <Link
+                      className="dropdown-item"
+                      to={"/sign-out"}
+                      onClick={signOff}
+                    >
+                      Sign out
                     </Link>
                   </MDBDropdownMenu>
                 </MDBDropdown>

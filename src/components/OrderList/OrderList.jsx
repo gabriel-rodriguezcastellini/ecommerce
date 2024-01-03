@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { UserAuth } from "../../context/AuthContext";
-import {
-  collection,
-  getDocs,
-  query,
-  where,
-  Timestamp,
-} from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 import { db } from "../../services/firebase/firebaseConfig";
 import { MDBSpinner } from "mdb-react-ui-kit";
-import { parse, format } from "date-fns";
+import { format } from "date-fns";
 
 const OrderList = () => {
   const { user } = UserAuth();

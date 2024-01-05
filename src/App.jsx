@@ -1,20 +1,29 @@
 import "./App.css";
-import React from "react";
+import React, { Component } from "react";
 import NavBar from "./components/NavBar/NavBar";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import Footer from "./components/Footer/Footer";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound/NotFound";
 import { CartProvider } from "./context/CartContext";
 import Cart from "./components/Cart/Cart";
 import Checkout from "./components/Checkout/Checkout";
-import { AuthContextProvider } from "./context/AuthContext";
+import { AuthContextProvider, UserAuth } from "./context/AuthContext";
 import Login from "./components/Login/Login";
-import { RouteProtector } from "./components/RouteProtector/RouteProtector";
 import OrderList from "./components/OrderList/OrderList";
 
 const App = () => {
+  const ProtectedRoute = ({ element: Component }) => {
+    const { user } = UserAuth();
+
+    if (!user) {
+      return <Navigate to={"/login"} />;
+    }
+
+    return <Component />;
+  };
+
   return (
     <div className="d-flex flex-column min-vh-100">
       <BrowserRouter>
@@ -31,19 +40,11 @@ const App = () => {
               <Route path="/cart" element={<Cart />} />
               <Route
                 path="/checkout"
-                element={
-                  <RouteProtector>
-                    <Checkout />
-                  </RouteProtector>
-                }
+                element={<ProtectedRoute element={Checkout} />}
               />
               <Route
                 path="/account-orders"
-                element={
-                  <RouteProtector>
-                    <OrderList />
-                  </RouteProtector>
-                }
+                element={<ProtectedRoute element={OrderList} />}
               />
               <Route path="/login" element={<Login />} />
               <Route path="*" element={<NotFound />} />

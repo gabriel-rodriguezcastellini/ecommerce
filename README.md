@@ -35,9 +35,15 @@ To run this application locally:
 
 - `React`: JavaScript library for building user interfaces.
 - `Firebase`: Backend-as-a-Service for managing databases, authentication, and more.
-- Additional dependencies as per project requirements.
+
+## Additional Dependencies Summary
+
+- `@fortawesome/fontawesome-free`: Used for adding Font Awesome icons to enhance the visual appeal of the e-commerce application.
+- `date-fns`: Included for date manipulation and handling within the project.
+- `mdb-react-ui-kit`: Integrated to leverage Material Design Bootstrap components for styling and ensuring UI consistency in the ecommerce application.
+- `react-scripts`: Included for various scripts.
 
 ## Additional Notes
 
 - The project follows React best practices and aims for a modular, scalable codebase.
-- External libraries are used judiciously, with justifications provided in the codebase.
+- External libraries are used judiciously, with justifications provided above.
